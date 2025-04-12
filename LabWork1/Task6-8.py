@@ -14,3 +14,23 @@ def max_cyrillic_sequence(s):
             current = 0  # Сбрасываем счетчик
     return max_count
 
+# Задание №7
+def find_min_natural(s):
+    min_num = None  # Начальное значение минимального числа
+    current_num = ""  # Здесь будем собирать текущее число
+
+    for char in s + " ":  # Добавляем пробел в конец для обработки последнего числа
+        if char.isdigit():
+            current_num += char  # Добавляем к текущему числу
+        else:
+            # Если собрали какое-то число
+            if current_num:
+                num = int(current_num)
+                if num > 0:
+                    # Если это первое найденное число или оно меньше текущего минимума
+                    if min_num is None or num < min_num:
+                        min_num = num
+                current_num = ""  # Сбрасываем текущее число
+
+    return min_num  # Возвращаем минимальное число (или None, если не нашли)
+
