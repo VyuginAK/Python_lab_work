@@ -20,3 +20,30 @@ def sort_by_median_ascii(strings):
 
     return sorted(strings, key=get_median)
 
+
+# Задание 8
+def sort_by_triple_deviation(strings):
+    """
+    Сортировка строк по квадратичному отклонению между:
+    - средним ASCII-кодом всей строки
+    - максимальным средним ASCII-кодом троек символов
+    """
+
+    def calculate_deviation(s):
+        if len(s) < 3:
+            return 0
+
+        # Среднее значение ASCII-кодов для всей строки
+        avg_all = sum(ord(c) for c in s) / len(s)
+
+        # Максимальное среднее для троек символов
+        triples_avg = [
+            (ord(s[i]) + ord(s[i + 1]) + ord(s[i + 2])) / 3
+            for i in range(len(s) - 2)
+        ]
+        max_triple = max(triples_avg) if triples_avg else 0
+
+        return (avg_all - max_triple) ** 2  # Квадратичное отклонение
+
+    return sorted(strings, key=calculate_deviation)
+
