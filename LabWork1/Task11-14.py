@@ -10,6 +10,11 @@ def sort_by_avg_ascii(strings):
     # Сортируем строки по вычисленному среднему значению
     return sorted(strings, key=get_avg)
 
+# Пример использования
+strings = ["abc", "defg", "hijkl"]
+print("Задание 2:", sort_by_avg_ascii(strings))
+
+
 # Задание 6
 def sort_by_median_ascii(strings):
 
@@ -19,6 +24,10 @@ def sort_by_median_ascii(strings):
         return statistics.median(codes) if codes else 0
 
     return sorted(strings, key=get_median)
+
+# Пример использования
+strings = ["cat", "dog", "bear"]
+print("Задание 6:", sort_by_median_ascii(strings))
 
 
 # Задание 8
@@ -47,6 +56,12 @@ def sort_by_triple_deviation(strings):
 
     return sorted(strings, key=calculate_deviation)
 
+
+# Пример использования
+strings = ["abcdef", "xyz", "hello"]
+print("Задание 8:", sort_by_triple_deviation(strings))
+
+
 # Задание 11
 def sort_by_variance_from_first(strings):
     """
@@ -74,3 +89,8 @@ def sort_by_variance_from_first(strings):
         return (current_max - target) ** 2  # Квадрат разницы
 
     return sorted(strings, key=get_variance)
+
+
+# Пример использования
+strings = ["python", "java", "c++"]
+print("Задание 11:", sort_by_variance_from_first(strings))
