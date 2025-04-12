@@ -34,3 +34,16 @@ def find_min_natural(s):
 
     return min_num  # Возвращаем минимальное число (или None, если не нашли)
 
+# Задание №14
+def max_digit_sequence(s):
+    max_count = 0  # Максимальная длина последовательности
+    current = 0  # Текущая длина последовательности
+
+    for char in s:
+        if char.isdigit():
+            current += 1
+            max_count = max(max_count, current)
+        else:
+            current = 0  # Сбрасываем счетчик
+
+    return max_count
