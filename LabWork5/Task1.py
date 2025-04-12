@@ -32,3 +32,7 @@ def is_valid_date(date_str):
 
     return 1 <= day <= max_day
 
+def validate_date(date_str):
+    if not is_valid_date(date_str):
+        raise ValueError(f"Некорректная дата: {date_str}")
+    return date_str
