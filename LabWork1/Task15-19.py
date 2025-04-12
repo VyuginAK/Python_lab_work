@@ -9,3 +9,17 @@ def is_global_min(arr, index):
     # Сравниваем элемент по индексу с глобальным минимумом
     return arr[index] == global_min
 
+# Задание 17
+def swap_min_max(arr):
+
+    if len(arr) < 2:
+        return arr  # Невозможно поменять
+
+    # Находим индексы минимума и максимума
+    min_index = arr.index(min(arr))
+    max_index = arr.index(max(arr))
+
+    # Меняем местами
+    arr[min_index], arr[max_index] = arr[max_index], arr[min_index]
+    return arr
+
