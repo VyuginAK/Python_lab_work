@@ -28,3 +28,47 @@ def min_odd_digit(n):
                 min_digit = digit
 
     return min_digit if min_digit is not None else -1  # Возвращаем -1, если нечётных цифр нет
+
+
+def sum_special_divisors(n):
+    """
+    Находит сумму делителей числа n, которые:
+    1. Взаимно просты с суммой цифр числа (НОД = 1).
+    2. Не взаимно просты с произведением цифр числа (НОД > 1).
+    """
+    if n == 0:
+        return 0  # У 0 бесконечно много делителей, но по условию пропускаем
+
+    def sum_of_digits(num):  # Вспомогательная функция: сумма цифр
+        return sum(int(d) for d in str(abs(num)))
+
+    def product_of_digits(num):  # Вспомогательная функция: произведение цифр
+        product = 1
+        for d in str(abs(num)):
+            product *= int(d)
+        return product
+
+    s = sum_of_digits(n)  # Сумма цифр числа
+    p = product_of_digits(n)  # Произведение цифр числа
+
+    # Находим все делители числа n
+    divisors = set()
+    for i in range(1, int(math.isqrt(abs(n))) + 1):
+        if n % i == 0:
+            divisors.add(i)
+            divisors.add(n // i)
+
+    total = 0  # Сумма подходящих делителей
+
+    for d in divisors:
+        # Проверяем, что НОД(d, сумма цифр) = 1
+        if math.gcd(d, s) == 1:
+            # Если произведение цифр = 0 (содержит 0), то любой d > 1 не взаимно прост с 0
+            if p == 0:
+                if d > 1:
+                    total += d
+            else:
+                # Проверяем, что НОД(d, произведение цифр) > 1
+                if math.gcd(d, p) != 1:
+                    total += d
+    return total
