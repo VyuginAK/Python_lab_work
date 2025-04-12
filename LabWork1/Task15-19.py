@@ -23,3 +23,12 @@ def swap_min_max(arr):
     arr[min_index], arr[max_index] = arr[max_index], arr[min_index]
     return arr
 
+# Задание 29
+def is_max_in_range(arr, a, b):
+
+    if not arr:
+        return False  # Пустой массив
+
+    max_value = max(arr)
+    return a <= max_value <= b
+
