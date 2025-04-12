@@ -32,3 +32,13 @@ def is_max_in_range(arr, a, b):
     max_value = max(arr)
     return a <= max_value <= b
 
+# Задание 41
+def average_of_abs(arr):
+
+    if not arr:
+        return 0  # Пустой массив
+
+    # Сумма модулей элементов
+    sum_abs = sum(abs(x) for x in arr)
+    return sum_abs / len(arr)
+
