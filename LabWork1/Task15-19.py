@@ -42,3 +42,15 @@ def average_of_abs(arr):
     sum_abs = sum(abs(x) for x in arr)
     return sum_abs / len(arr)
 
+# Задание 53
+def filter_elements(arr):
+
+    if len(arr) < 2:
+        return []
+
+    avg = sum(arr) / len(arr)  # Среднее арифметическое
+    max_val = max(arr)  # Максимальное значение
+
+    # Фильтруем элементы
+    return [x for x in arr if avg < x < max_val]
+
