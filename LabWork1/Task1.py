@@ -72,3 +72,7 @@ def sum_special_divisors(n):
                 if math.gcd(d, p) != 1:
                     total += d
     return total
+
+print(count_non_divisible_by_3(54))
+print(min_odd_digit(54385))
+print(sum_special_divisors(100))
