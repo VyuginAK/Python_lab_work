@@ -14,6 +14,11 @@ def max_cyrillic_sequence(s):
             current = 0  # Сбрасываем счетчик
     return max_count
 
+# Пример использования
+text = "Привет! Это тестЁё для проверки"
+print(max_cyrillic_sequence(text))
+
+
 # Задание №7
 def find_min_natural(s):
     min_num = None  # Начальное значение минимального числа
@@ -34,6 +39,10 @@ def find_min_natural(s):
 
     return min_num  # Возвращаем минимальное число (или None, если не нашли)
 
+# Примеры использования
+print(find_min_natural("В 5 корзинах 8 яблока и 12 апельсинов"))
+
+
 # Задание №14
 def max_digit_sequence(s):
     max_count = 0  # Максимальная длина последовательности
@@ -47,3 +56,7 @@ def max_digit_sequence(s):
             current = 0  # Сбрасываем счетчик
 
     return max_count
+
+# Пример использования
+text = "ABC12345def678ghij99999"
+print(max_digit_sequence(text))
