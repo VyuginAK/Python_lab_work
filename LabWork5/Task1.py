@@ -32,7 +32,20 @@ def is_valid_date(date_str):
 
     return 1 <= day <= max_day
 
+
 def validate_date(date_str):
     if not is_valid_date(date_str):
         raise ValueError(f"Некорректная дата: {date_str}")
     return date_str
+
+
+# Примеры использования
+print(is_valid_date("31/12/2025"))  # True
+print(is_valid_date("31/04/2025"))  # False (в апреле 30 дней)
+print(is_valid_date("29/02/2024"))  # True (високосный год)
+print(is_valid_date("29/02/2025"))  # False
+
+try:
+    print(validate_date("12/13/2025"))  # Выбросит исключение
+except ValueError as e:
+    print(e)
